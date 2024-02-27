@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
@@ -17,14 +18,12 @@
         app:srcCompat="@drawable/logo" />
 
 
-    <EditText
-        android:id="@+id/editTextEmailAddress"
+        <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutLoginTextEmail"
         android:layout_width="291dp"
-        android:layout_height="54dp"
+        android:layout_height="70dp"
         android:layout_marginTop="36dp"
         android:background="@drawable/rounded_edittext"
-        android:ems="10"
-        android:gravity="center"
         android:hint="Email/Username"
         android:inputType="textEmailAddress"
         android:padding="10dp"
@@ -34,42 +33,73 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" >
 
-    <EditText
-        android:id="@+id/editTextPassword"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editLoginTextEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:ems="10"
+                android:background="@drawable/rounded_edittext"
+                android:shadowColor="#000000"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textStyle="bold" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutLoginTextPassword"
         android:layout_width="300dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="56dp"
+        android:layout_height="70dp"
         android:background="@drawable/rounded_edittext"
-        android:ems="10"
-        android:gravity="center"
         android:hint="Password"
         android:inputType="textPassword"
         android:shadowColor="#000000"
         android:textColor="#0E0E0E"
         android:textColorHint="#000000"
         android:textStyle="bold"
+        app:endIconMode="password_toggle"
+        app:layout_constraintBottom_toTopOf="@+id/LoginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutLoginTextEmail">
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editLoginTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:ems="10"
+            android:background="@drawable/rounded_edittext"
+            android:inputType="textPassword"
+            android:shadowColor="#000000"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/LoginButton"
         android:layout_width="330dp"
         android:layout_height="67dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="160dp"
         android:backgroundTint="@color/white"
         android:text="Login"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutLoginTextPassword"
+        app:layout_constraintVertical_bias="0.851" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/toSignupPageButton"
         android:layout_width="137dp"
         android:layout_height="58dp"

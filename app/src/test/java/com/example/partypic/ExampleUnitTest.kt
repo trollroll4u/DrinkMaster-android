@@ -1,4 +1,4 @@
-package com.example.partypic2
+package com.example.partypic
 
 import org.junit.Test
 

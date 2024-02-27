@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "323355055956",
+    "project_id": "partypic-92220",
+    "storage_bucket": "partypic-92220.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323355055956:android:129658ec356367e80d1ac1",
+        "android_client_info": {
+          "package_name": "com.example.partypic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChAProuPCsAKIv3c-nrJgbNLmeFvbWgcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-package com.example.partypic2
+package com.example.partypic
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -24,8 +25,8 @@ class LoginActivity : AppCompatActivity() {
 
 
     fun setUI(){
-        emailAddressInput = findViewById(R.id.editTextEmailAddress)
-        passwordInput = findViewById(R.id.editTextPassword)
+        emailAddressInput = findViewById(R.id.editLoginTextEmailAddress)
+        passwordInput = findViewById(R.id.editLoginTextPassword)
         signinButton = findViewById(R.id.LoginButton)
         signUpButton = findViewById(R.id.toSignupPageButton)
 
