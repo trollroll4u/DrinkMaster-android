@@ -12,17 +12,17 @@ import android.widget.EditText
 
 class MainActivity : AppCompatActivity() {
 
-    var emailAddressInput: EditText? = null
-    var passwordInput: EditText? = null
-    var signUpButton: Button? = null
-    var signinButton: Button? = null
+    private lateinit var emailAddressInput: EditText
+    private lateinit var passwordInput: EditText
+    private lateinit var signUpButton: Button
+    private lateinit var signinButton: Button
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i("creation","creating signin screen")
-//        setContentView(R.layout.activity_main)
-        setContentView(R.layout.login_screen)
-        setUI()
+        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.login_screen)
+//        setUI()
 
 //        val loginButton: Button = findViewById(R.id.onCreateButton)
 //
