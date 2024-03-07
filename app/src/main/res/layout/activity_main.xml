@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/LogoImage"
+        android:layout_width="126dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/android_logo" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_below="@id/LogoImage"
+        android:layout_height="10dp" />
+
 
     <!-- Note: A RecyclerView can also be used -->
 
@@ -17,16 +34,13 @@
         android:background="@color/black"
         app:itemIconTint="@drawable/bottom_nav_item_selector"
         app:itemTextColor="@drawable/bottom_nav_item_selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992"
         app:menu="@menu/bottom_nav_menu"
-        tools:layout_editor_absoluteY="650dp" />
+        tools:layout_editor_absoluteX="-16dp" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="126dp"
-        android:layout_height="80dp"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="16dp" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
