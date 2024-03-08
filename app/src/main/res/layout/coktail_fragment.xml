@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--    <Space-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="36dp" />-->
+
+    <ImageView
+        android:id="@+id/LogoImage"
+        android:layout_width="361dp"
+        android:layout_height="164dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/android_logo" />
+
+    <TextView
+        android:id="@+id/coktailTitle"
+        android:layout_width="372dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
+        android:hint="Coktail Name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogoImage" />
+
+    <TextView
+        android:id="@+id/IngredientTitle"
+        android:layout_width="377dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="12dp"
+        android:hint="Ingredients:"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coktailTitle" />
+
+    <TextView
+        android:id="@+id/coktailIngredient"
+        android:layout_width="375dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="4dp"
+        android:lineSpacingExtra="8sp"
+        android:maxHeight="230dp"
+        android:scrollbars="vertical"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IngredientTitle" />
+
+    <TextView
+        android:id="@+id/InstructionsTitle"
+        android:layout_width="377dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="12dp"
+        android:hint="Instructions:"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coktailIngredient" />
+
+    <TextView
+        android:id="@+id/coktailInstruction"
+        android:layout_width="374dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="4dp"
+        android:lineSpacingExtra="8sp"
+        android:maxHeight="230dp"
+        android:scrollbars="vertical"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InstructionsTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/AddReviewButton"
+        android:layout_width="330dp"
+        android:layout_height="67dp"
+        android:backgroundTint="@color/white"
+        android:text="Create Review"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coktailInstruction"
+        app:layout_constraintVertical_bias="0.415" />
+
+    <!--    <Space-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="36dp" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/addReview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/mybutton"-->
+<!--        android:text="@string/add_review"-->
+<!--        android:textColor="#FFFF7B00"-->
+<!--        android:textSize="20sp" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
