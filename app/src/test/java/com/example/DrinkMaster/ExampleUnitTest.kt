@@ -1,4 +1,4 @@
-package com.example.partypic
+package com.example.DrinkMaster
 
 import org.junit.Test
 
