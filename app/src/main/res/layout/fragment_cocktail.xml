@@ -7,8 +7,8 @@
     android:layout_height="match_parent">
 
     <!--    <Space-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="36dp" />-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="36dp" />-->
 
     <ImageView
         android:id="@+id/LogoImage"
@@ -115,16 +115,16 @@
         app:layout_constraintVertical_bias="0.415" />
 
     <!--    <Space-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="36dp" />-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="36dp" />-->
 
-<!--    <Button-->
-<!--        android:id="@+id/addReview"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/mybutton"-->
-<!--        android:text="@string/add_review"-->
-<!--        android:textColor="#FFFF7B00"-->
-<!--        android:textSize="20sp" />-->
+    <!--    <Button-->
+    <!--        android:id="@+id/addReview"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@drawable/mybutton"-->
+    <!--        android:text="@string/add_review"-->
+    <!--        android:textColor="#FFFF7B00"-->
+    <!--        android:textSize="20sp" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

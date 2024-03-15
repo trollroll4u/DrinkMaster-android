@@ -9,25 +9,26 @@
     android:orientation="vertical"
     tools:context=".modules.search.Search">
 
+    <!--    <Space-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="20dp" />-->
+
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="96dp"
         android:background="@drawable/search_view"
+        android:backgroundTint="@color/white"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:iconifiedByDefault="false"
         android:inputType="text"
         android:queryHint="Search cocktail name..."
-        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--    <Space-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="20dp" />-->
 
     <TextView
         android:id="@+id/SearchTextView"
@@ -46,8 +47,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchResultsLayout"
-        android:layout_width="374dp"
-        android:layout_height="603dp"
+        android:layout_width="385dp"
+        android:layout_height="572dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

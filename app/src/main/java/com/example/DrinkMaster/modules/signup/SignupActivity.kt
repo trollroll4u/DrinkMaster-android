@@ -1,26 +1,24 @@
-package com.example.DrinkMaster
+package com.example.DrinkMaster.modules.signup
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageButton
 import android.provider.MediaStore
 import android.net.Uri
 import android.util.Patterns
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import com.example.DrinkMaster.R
+import com.example.DrinkMaster.modules.login.LoginActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
-import com.google.firebase.auth.UserProfileChangeRequest
 
 
 class SignupActivity : AppCompatActivity() {
