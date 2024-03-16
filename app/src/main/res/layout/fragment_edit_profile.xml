@@ -87,69 +87,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutTextPassword"
-        android:layout_width="330dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/rounded_edittext"
-        android:hint="New password"
-        app:endIconMode="password_toggle"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTextLastName" >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_edittext"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:shadowColor="#000000"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textStyle="bold" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutTextConfirmPassword"
-        android:layout_width="330dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_edittext"
-        android:shadowColor="#000000"
-        android:textColor="#0E0E0E"
-        android:textColorHint="#000000"
-        android:textStyle="bold"
-        app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTextPassword">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_edittext"
-            android:ems="10"
-            android:hint="Confirm New Password"
-            android:inputType="textPassword"
-            android:shadowColor="#000000"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textStyle="bold" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/SignupButton"
+        android:id="@+id/saveButton"
         android:layout_width="330dp"
         android:layout_height="67dp"
         android:backgroundTint="@color/white"
@@ -161,9 +100,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTextConfirmPassword"
-        app:layout_constraintVertical_bias="0.194" />
-
+        app:layout_constraintTop_toBottomOf="@+id/layoutTextLastName"
+        app:layout_constraintVertical_bias="0.303" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

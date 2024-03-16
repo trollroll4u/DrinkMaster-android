@@ -39,29 +39,6 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
-//        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
-//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fra)
-//        homeButton = findViewById(R.id.editLoginTextPassword)
-//        searchButton = findViewById(R.id.LoginButton)
-//        profileButton = findViewById(R.id.toSignupPageButton)
 
-//        signUpButton?.setOnClickListener{
-//            Log.i("buttonClick","signup button in signin screen clicked")
-//            val intent = Intent(this, SignupActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        signinButton?.setOnClickListener{
-//            Log.i("buttonClick","signup button in signin screen clicked")
-//            Log.i("signinSubmit","email input is:" + emailAddressInput?.text.toString())
-//            Log.i("signinSubmit","password Input is:" + passwordInput?.text.toString())
-
-//            val intent = Intent(this, SignupActivity::class.java)
-//            startActivity(intent)
-//        }
     }
-//    fun onloginButtonClicked(view:View){
-//        val intent = Intent(this, LoginActivity::class.java)
-//        startActivity(intent)
-//    }
 }

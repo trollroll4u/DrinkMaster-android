@@ -11,7 +11,7 @@
     <!--        android:layout_height="36dp" />-->
 
     <ImageView
-        android:id="@+id/LogoImage"
+        android:id="@+id/cocktailImage"
         android:layout_width="361dp"
         android:layout_height="164dp"
         android:layout_marginStart="8dp"
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/InstructionsTitle" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/AddReviewButton"
+        android:id="@+id/CreateReviewButton"
         android:layout_width="330dp"
         android:layout_height="67dp"
         android:backgroundTint="@color/white"
