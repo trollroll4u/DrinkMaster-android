@@ -4,6 +4,8 @@ import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.DrinkMaster.data.user.User
+import com.example.newapp.data.user.UserModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.auth
