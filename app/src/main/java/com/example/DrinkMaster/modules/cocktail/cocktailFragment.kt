@@ -35,8 +35,9 @@ class cocktailFragment : Fragment() {
         viewModel.setCocktail(args.chooseCocktail)
 
         cocktailsDetails(root)
-        root.findViewById<Button>(R.id.CreateReviewButton).setOnClickListener {
-            val action = cocktailFragmentDirection.actionCocktailFragmentToNewReview(viewModel.cocktailDetailsData!!)
+        root.findViewById<Button>(R.id.AddReviewButton).setOnClickListener {
+            val action = cocktailFragmentDirections.actionCocktailFragmentToCreateReview(viewModel.cocktailDetailsData!!)
+
             findNavController().navigate(action)
         }
 

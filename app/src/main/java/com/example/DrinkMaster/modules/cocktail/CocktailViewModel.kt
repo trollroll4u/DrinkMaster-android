@@ -9,9 +9,6 @@ class CocktailViewModel : ViewModel() {
     fun setCocktail(cocktail: Cocktail) {
         cocktailDetailsData = cocktail
     }
-    fun getCocktail() : Cocktail? {
-        return cocktailDetailsData
-    }
 
 }
 
