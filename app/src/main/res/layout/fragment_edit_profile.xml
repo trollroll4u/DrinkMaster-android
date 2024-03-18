@@ -11,12 +11,11 @@
         android:id="@+id/profilePicButton"
         android:layout_width="127dp"
         android:layout_height="110dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="120dp"
         android:backgroundTint="#000000"
         android:contentDescription="pick profile picture"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profilelogo" />
@@ -52,6 +51,7 @@
             android:textColorHint="#000000"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutTextLastName"

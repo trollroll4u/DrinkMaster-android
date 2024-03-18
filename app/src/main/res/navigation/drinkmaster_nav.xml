@@ -62,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/profile"
-        android:name="com.example.DrinkMaster.modules.profile.profile"
+        android:name="com.example.DrinkMaster.modules.profile.Profile"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/edit_profile"
-        android:name="com.example.DrinkMaster.modules.EditProfile.edit_profile"
+        android:name="com.example.DrinkMaster.modules.EditProfile.EditProfile"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" >
         <action

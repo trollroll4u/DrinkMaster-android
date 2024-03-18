@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.widget.Button
+import android.widget.Toast
+import com.example.DrinkMaster.MainActivity
 import com.example.DrinkMaster.R
 import com.example.DrinkMaster.modules.signup.SignupActivity
 import com.google.android.material.textfield.TextInputEditText
@@ -87,33 +89,32 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-//            auth.signInWithEmailAndPassword(emailValue, passwordValue).addOnSuccessListener {
-//                loggedInHandler()
-//            }.addOnFailureListener {
-//                Toast.makeText(
-//                    this@LoginActivity,
-//                    "Your Email or Password is incorrect!",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
+            auth.signInWithEmailAndPassword(emailValue, passwordValue).addOnSuccessListener {
+                loggedInHandler()
+            }.addOnFailureListener {
+                Toast.makeText(
+                    this@LoginActivity,
+                    "Your Email or Password is incorrect!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
-//            auth.createUserWithEmailAndPassword(emailValue,passwordValue).addOnSuccessListener {
-//                val authenticatedUser = it.user!!
+            auth.createUserWithEmailAndPassword(emailValue,passwordValue).addOnSuccessListener {
+                val authenticatedUser = it.user!!
 
-//            }
+            }
 
     }
 
     private fun loggedInHandler() {
-        println("ohadddddd")
-//        Toast.makeText(
-//            this@LoginActivity,
-//            "Welcome ${auth.currentUser?.displayName}!",
-//            Toast.LENGTH_SHORT
-//        ).show()
-//        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-//        startActivity(intent)
-//        finish()
+        Toast.makeText(
+            this@LoginActivity,
+            "Welcome ${auth.currentUser?.displayName}!",
+            Toast.LENGTH_SHORT
+        ).show()
+        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun loginUserValidation(
