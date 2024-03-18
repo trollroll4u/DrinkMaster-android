@@ -19,7 +19,10 @@ class edit_cocktail_review : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_edit_cocktail_review, container, false)
+        var view = inflater.inflate(R.layout.fragment_edit_cocktail_review, container, false)
+        viewModel = ViewModelProvider(this).get(EditCocktailReviewViewModel::class.java)
+
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
