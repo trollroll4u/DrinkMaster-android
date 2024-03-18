@@ -28,7 +28,6 @@
         android:id="@+id/coktailTitle"
         android:layout_width="372dp"
         android:layout_height="63dp"
-        android:layout_marginTop="16dp"
         android:hint="Coktail Name"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -36,15 +35,15 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogoImage" />
+        app:layout_constraintTop_toBottomOf="@+id/cocktailImage" />
 
     <TextView
         android:id="@+id/IngredientTitle"
         android:layout_width="377dp"
         android:layout_height="44dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="35dp"
         android:hint="Ingredients:"
         android:textAlignment="textStart"
         android:textColor="@color/white"
@@ -52,7 +51,7 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coktailTitle" />
 
@@ -60,12 +59,13 @@
         android:id="@+id/coktailIngredient"
         android:layout_width="375dp"
         android:layout_height="137dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:lineSpacingExtra="8sp"
         android:maxHeight="230dp"
         android:scrollbars="vertical"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IngredientTitle" />
 
@@ -73,7 +73,7 @@
         android:id="@+id/InstructionsTitle"
         android:layout_width="377dp"
         android:layout_height="44dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:hint="Instructions:"
         android:textAlignment="textStart"
         android:textColor="@color/white"
@@ -81,7 +81,7 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coktailIngredient" />
 
@@ -89,17 +89,18 @@
         android:id="@+id/coktailInstruction"
         android:layout_width="374dp"
         android:layout_height="113dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:lineSpacingExtra="8sp"
         android:maxHeight="230dp"
         android:scrollbars="vertical"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InstructionsTitle" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/CreateReviewButton"
+        android:id="@+id/AddReviewButton"
         android:layout_width="330dp"
         android:layout_height="67dp"
         android:backgroundTint="@color/white"
