@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drinkmaster_nav"
+    app:startDestination="@id/main_feed">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.DrinkMaster.modules.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_cocktailFragment"
+            app:destination="@id/cocktailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/my_cocktails_reviews"
+        android:name="com.example.DrinkMaster.cocktails_feed"
+        android:label="fragment_cocktails_feed"
+        tools:layout="@layout/fragment_cocktails_feed" >
+        <action
+            android:id="@+id/action_my_cocktails_reviews_to_edit_cocktail_review"
+            app:destination="@id/edit_cocktail_review" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_feed"
+        android:name="com.example.DrinkMaster.cocktails_feed"
+        android:label="fragment_cocktails_feed"
+        tools:layout="@layout/fragment_cocktails_feed" />
+    <fragment
+        android:id="@+id/cocktailFragment"
+        android:name="com.example.DrinkMaster.modules.cocktail.cocktailFragment"
+        android:label="cocktailFragment">
+        <action
+            android:id="@+id/action_cocktailFragment_to_create_review"
+            app:destination="@id/create_review" />
+        <argument
+            android:name="chooseCocktail"
+            app:argType="com.example.DrinkMaster.data.cocktail.Cocktail" />
+    </fragment>
+    <fragment
+        android:id="@+id/create_review"
+        android:name="com.example.DrinkMaster.create_review"
+        android:label="fragment_create_review"
+        tools:layout="@layout/fragment_create_review" >
+        <action
+            android:id="@+id/action_create_review_to_main_feed"
+            app:destination="@id/main_feed" />
+        <argument
+            android:name="chooseCocktail"
+            app:argType="com.example.DrinkMaster.data.cocktail.Cocktail" />
+    </fragment>
+    <fragment
+        android:id="@+id/edit_cocktail_review"
+        android:name="com.example.DrinkMaster.edit_cocktail_review"
+        android:label="fragment_edit_cocktail_review"
+        tools:layout="@layout/fragment_edit_cocktail_review" >
+        <action
+            android:id="@+id/action_edit_cocktail_review_to_profile2"
+            app:destination="@id/profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.DrinkMaster.modules.profile.profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_edit_profile"
+            app:destination="@id/edit_profile" />
+        <action
+            android:id="@+id/action_profile_to_my_cocktails_reviews"
+            app:destination="@id/my_cocktails_reviews" />
+    </fragment>
+    <fragment
+        android:id="@+id/edit_profile"
+        android:name="com.example.DrinkMaster.modules.EditProfile.edit_profile"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_edit_profile_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
+</navigation>
