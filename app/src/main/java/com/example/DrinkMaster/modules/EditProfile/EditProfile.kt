@@ -7,13 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.annotation.RequiresExtension
 import androidx.lifecycle.ViewModelProvider
-import com.example.DrinkMaster.R
 import com.example.DrinkMaster.databinding.FragmentEditProfileBinding
-import com.example.DrinkMaster.modules.cocktail.CocktailViewModel
-
 
 
 class EditProfile : Fragment() {
@@ -58,7 +54,7 @@ class EditProfile : Fragment() {
         Log.d("EditProfile", "onCreateView2: ")
         val view = binding.root
         Log.d("EditProfile", "onCreateView3: ")
-        viewModel = ViewModelProvider(this)[EditProfileViewModel::class.java]
+        viewModel = ViewModelProvider(this).get(EditProfileViewModel::class.java)
         Log.d("EditProfile", "onCreateView4: ")
         setUI()
 

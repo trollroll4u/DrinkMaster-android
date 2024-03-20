@@ -20,7 +20,7 @@ import com.example.DrinkMaster.MainActivity
 import com.example.DrinkMaster.R
 import com.example.DrinkMaster.modules.login.LoginActivity
 import com.example.DrinkMaster.data.user.User
-import com.example.newapp.data.user.UserModel
+import com.example.DrinkMaster.data.user.UserModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.Firebase

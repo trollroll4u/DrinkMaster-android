@@ -1,4 +1,4 @@
-package com.example.DrinkMaster
+package com.example.DrinkMaster.modules.createReview
 
 import androidx.lifecycle.ViewModel
 

@@ -8,7 +8,7 @@
     <item name="searchView" type="id"/>
     <item name="SearchTextView" type="id"/>
     <item name="searchResultsLayout" type="id"/>
-    <item name="profilePicButton" type="id"/>
+    <item name="cocktailPicButton" type="id"/>
     <item name="layoutTextFirstNameEditProfile" type="id"/>
     <item name="editTextFirstNameEditProfile" type="id"/>
 

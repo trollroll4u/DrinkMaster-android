@@ -1,4 +1,4 @@
-package com.example.newapp.data.user
+package com.example.DrinkMaster.data.user
 
 import android.net.Uri
 import android.util.Log

@@ -1,6 +1,7 @@
-package com.example.newapp.data.user
+package com.example.DrinkMaster.data.user
 
 import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.DrinkMaster.data.AppLocalDatabase
 import com.example.DrinkMaster.data.user.User
@@ -25,6 +26,8 @@ class UserModel private constructor() {
     }
 
     fun getCurrentUser(): LiveData<User> {
+        Log.i("UserModel", "getCurrentUser: ${Firebase.auth.currentUser?.uid}")
+        Log.i("UserModel", "getCurrentUser: ${Firebase.auth.currentUser?.uid}")
         return database.userDto().getUserById(Firebase.auth.currentUser?.uid!!)
     }
 
