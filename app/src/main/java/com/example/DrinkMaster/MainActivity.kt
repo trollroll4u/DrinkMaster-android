@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i("creation","creating ypi screen")
@@ -23,9 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setUI()
 
-//        val loginButton: Button = findViewById(R.id.onCreateButton)
-//
-//        loginButton.setOnClickListener(::onloginButtonClicked)
     }
 
     fun setUI () {

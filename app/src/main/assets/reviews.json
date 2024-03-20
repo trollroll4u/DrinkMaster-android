@@ -3,7 +3,7 @@
     "id": "1",
     "cocktailName": "Mojito",
     "cocktailDescription": "A refreshing cocktail with mint and lime.",
-    "grade": 5,
+    "grade": 3,
     "userId": "user1",
     "isDeleted": false,
     "reviewImage": "mojito.jpg",

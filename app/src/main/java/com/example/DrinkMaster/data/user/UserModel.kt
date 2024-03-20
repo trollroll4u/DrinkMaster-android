@@ -2,6 +2,8 @@ package com.example.DrinkMaster.data.user
 
 import android.net.Uri
 import android.util.Log
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.LiveData
 import com.example.DrinkMaster.data.AppLocalDatabase
 import com.example.DrinkMaster.data.user.User
@@ -71,12 +73,20 @@ class UserModel private constructor() {
         firebaseModel.getImage(imageId, callback);
     }
 
-    fun addUser(user: User, selectedImageUri: Uri, callback: () -> Unit) {
-        firebaseModel.addUser(user) {
-            firebaseModel.addUserImage(user.id, selectedImageUri) {
-                refreshAllUsers()
-                callback()
+    fun addUser(user: User, ImageUri: Uri, callback: () -> Unit) {
+        try {
+            firebaseModel.addUser(user) {
+                Log.i("ohad","herere")
+                firebaseModel.addUserImage(user.id, ImageUri) {
+                    Log.i("ohad","herere2")
+                    refreshAllUsers()
+                    callback()
+                }
             }
+
+        }  catch (e: Exception) {
+            Log.d("userModel", "Error: $e")
         }
+
     }
 }

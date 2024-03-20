@@ -1,6 +1,7 @@
 package com.example.DrinkMaster.modules.feed
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,55 +14,110 @@ import org.json.JSONObject
 import java.io.IOException
 
 class CocktailsFeedViewModel() : ViewModel() {
+
+//    var reviews: LiveData<MutableList<Review>>? = ReviewModel.instance.getAllReviews()
+//    val users: LiveData<MutableList<User>>? = null
+
+//    var reviews: MutableLiveData<MutableList<Review>> = MutableLiveData()
+//    var users: MutableLiveData<MutableList<User>> = MutableLiveData()
+//    var number: Int = ReviewModel.instance.getNumber()
+
+//    init {
+//        reviews.value = loadReviewsFromAssets()
+//        users.value = loadUsersFromAssets()
+//    }
+
     val reviews: LiveData<MutableList<Review>> = ReviewModel.instance.getAllReviews()
     val users: LiveData<MutableList<User>> = UserModel.instance.getAllUsers()
     val reviewsListLoadingState: MutableLiveData<ReviewModel.LoadingState> =
         ReviewModel.instance.reviewsListLoadingState
+//    init {
+//        loadReviewsFromAssets()
+//    }
 
     fun reloadData() {
         UserModel.instance.refreshAllUsers()
         ReviewModel.instance.refreshAllReviews()
+//        loadReviewsFromAssets()
     }
-    fun loadReviewsFromAssets(context: Context): MutableList<Review> {
+
+    fun loadReviewsFromAssets(): MutableList<Review> {
         val reviews = mutableListOf<Review>()
-        val json: String
-
-        try {
-            val inputStream = context.assets.open("reviews.json")
-            json = inputStream.bufferedReader().use { it.readText() }
-            val jsonArray = JSONArray(json)
-
-            for (i in 0 until jsonArray.length()) {
-                val jsonObject = jsonArray.getJSONObject(i)
-                val reviewMap = jsonObject.toMap()
-                val review = Review.fromJSON(reviewMap)
-                reviews.add(review)
-            }
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-        }
+//
+//        reviews.add(rev1)
+//        reviews.add(rev2)
+//        reviews.add(rev3)
+//        reviews.add(rev4)
+//        val json: String
+//
+//        try {
+//            val inputStream = context.assets.open("reviews.json")
+//            json = inputStream.bufferedReader().use { it.readText() }
+//            val jsonArray = JSONArray(json)
+//
+//            for (i in 0 until jsonArray.length()) {
+//                val jsonObject = jsonArray.getJSONObject(i)
+//                val reviewMap = jsonObject.toMap()
+//                val review = Review.fromJSON(reviewMap)
+//                reviews.add(review)
+//            }
+//        } catch (ex: IOException) {
+//            ex.printStackTrace()
+//        }
 
         return reviews
     }
+//    fun loadReviewsFromAssets(): MutableList<Review> {
+//        var reviews2: MutableLiveData<MutableList<Review>>
+//
+//        reviews2?.value?.add(rev1)
+//        reviews?.value?.add(rev2)
+//        reviews?.value?.add(rev3)
+//        reviews?.value?.add(rev4)
 
-    fun loadUsersFromAssets(context: Context): MutableList<User> {
+//        users?.value?.add(user)
+//        Log.i("ohad","ohad22")
+//        val reviews = mutableListOf<Review>()
+//        val json: String
+//
+//        try {
+//            val inputStream = context.assets.open("reviews.json")
+//            json = inputStream.bufferedReader().use { it.readText() }
+//            val jsonArray = JSONArray(json)
+//
+//            for (i in 0 until jsonArray.length()) {
+//                val jsonObject = jsonArray.getJSONObject(i)
+//                val reviewMap = jsonObject.toMap()
+//                val review = Review.fromJSON(reviewMap)
+//                reviews.add(review)
+//            }
+//        } catch (ex: IOException) {
+//            ex.printStackTrace()
+//        }
+
+//        return reviews
+//    }
+
+    fun loadUsersFromAssets(): MutableList<User> {
         val users = mutableListOf<User>()
-        val json: String
 
-        try {
-            val inputStream = context.assets.open("users.json")
-            json = inputStream.bufferedReader().use { it.readText() }
-            val jsonArray = JSONArray(json)
-
-            for (i in 0 until jsonArray.length()) {
-                val jsonObject = jsonArray.getJSONObject(i)
-                val userMap = jsonObject.toMap()
-                val user = User.fromJSON(userMap)
-                users.add(user)
-            }
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-        }
+//        users.add(user)
+//        val json: String
+//
+//        try {
+//            val inputStream = context.assets.open("users.json")
+//            json = inputStream.bufferedReader().use { it.readText() }
+//            val jsonArray = JSONArray(json)
+//
+//            for (i in 0 until jsonArray.length()) {
+//                val jsonObject = jsonArray.getJSONObject(i)
+//                val userMap = jsonObject.toMap()
+//                val user = User.fromJSON(userMap)
+//                users.add(user)
+//            }
+//        } catch (ex: IOException) {
+//            ex.printStackTrace()
+//        }
 
         return users
     }

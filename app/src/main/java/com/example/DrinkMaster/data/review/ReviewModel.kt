@@ -4,11 +4,12 @@ import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.DrinkMaster.data.AppLocalDatabase
+import com.example.DrinkMaster.data.user.User
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import java.util.concurrent.Executors
 
-class ReviewModel {
+class ReviewModel private constructor() {
 
     enum class LoadingState {
         LOADING,
@@ -26,9 +27,18 @@ class ReviewModel {
     companion object {
         val instance: ReviewModel = ReviewModel()
     }
+    fun getNumber(): Int {
+        return 4
+    }
 
     fun getAllReviews(): LiveData<MutableList<Review>> {
-        refreshAllReviews()
+//
+//        reviews?.value?.add(rev1)
+//        reviews?.value?.add(rev2)
+//        reviews?.value?.add(rev3)
+//        reviews?.value?.add(rev4)
+
+//        refreshAllReviews()
         return reviews ?: database.reviewDao().getAll()
     }
 
@@ -99,7 +109,7 @@ class ReviewModel {
     }
 
     fun getReviewImage(imageId: String, callback: (Uri) -> Unit) {
-        firebaseModel.getImage(imageId, callback);
+//        firebaseModel.getImage(imageId, callback);
     }
 
 }

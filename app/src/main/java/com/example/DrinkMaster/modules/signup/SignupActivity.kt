@@ -67,8 +67,6 @@ class SignupActivity : AppCompatActivity() {
         Log.i("creation","creating signup screen")
         setContentView(R.layout.signup_screen)
 
-        defineImageSelectionCallBack()
-        openGallery()
         backToLogin()
         setUI()
 
@@ -154,7 +152,7 @@ class SignupActivity : AppCompatActivity() {
                 UserModel.instance.addUser(
                     User(authenticatedUser.uid, firstNameValue, lastNameValue),
                     imageURI!!
-                ) {
+                ){
                     Toast.makeText(
                         this@SignupActivity,
                         "Register Successful",
@@ -225,7 +223,7 @@ class SignupActivity : AppCompatActivity() {
         } else {
             passwordConfirmationInputLayout.error = null
         }
-        if (pickProfilepicButton == null) {
+        if (imageURI == null) {
             Toast.makeText(
                 this@SignupActivity,
                 "You must select Profile Image",
@@ -262,7 +260,8 @@ class SignupActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     } else {
-                        pickProfilepicButton?.setImageURI(imageUri)
+                        pickProfilepicButton.setImageURI(imageUri)
+                        imageURI = imageUri
                     }
 
                 } else {

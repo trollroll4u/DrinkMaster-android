@@ -24,7 +24,7 @@ object AppLocalDatabase {
         Room.databaseBuilder(
             context,
             AppLocalDbRepository::class.java,
-            "Drink Master"
+            "DrinkMaster"
         ).fallbackToDestructiveMigration()
             .build()
     }

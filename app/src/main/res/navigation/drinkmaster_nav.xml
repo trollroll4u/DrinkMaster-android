@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drinkmaster_nav"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/feed">
 
     <fragment
         android:id="@+id/searchFragment"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/my_cocktails_reviews"
-        android:name="com.example.DrinkMaster.modules.feed.cocktails_feed"
+        android:name="com.example.DrinkMaster.modules.feed.Feed"
         android:label="fragment_cocktails_feed"
         tools:layout="@layout/fragment_cocktails_feed" >
         <action
@@ -27,8 +27,8 @@
             app:argType="com.example.DrinkMaster.data.review.Review" />
     </fragment>
     <fragment
-        android:id="@+id/main_feed"
-        android:name="com.example.DrinkMaster.modules.feed.cocktails_feed"
+        android:id="@+id/feed"
+        android:name="com.example.DrinkMaster.modules.feed.Feed"
         android:label="fragment_cocktails_feed"
         tools:layout="@layout/fragment_cocktails_feed" />
     <fragment
@@ -49,7 +49,7 @@
         tools:layout="@layout/fragment_create_review" >
         <action
             android:id="@+id/action_create_review_to_main_feed"
-            app:destination="@id/main_feed" />
+            app:destination="@id/feed" />
         <argument
             android:name="chooseCocktail"
             app:argType="com.example.DrinkMaster.data.cocktail.Cocktail" />
@@ -91,5 +91,5 @@
         android:id="@+id/my_review_card"
         android:name="com.example.DrinkMaster.modules.myReviews.my_review_card"
         android:label="fragment_my_review_card2"
-        tools:layout="@layout/fragment_my_review_card2" />
+        tools:layout="@layout/fragment_my_review_card" />
 </navigation>
