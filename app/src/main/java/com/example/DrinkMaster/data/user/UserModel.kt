@@ -76,14 +76,11 @@ class UserModel private constructor() {
     fun addUser(user: User, ImageUri: Uri, callback: () -> Unit) {
         try {
             firebaseModel.addUser(user) {
-                Log.i("ohad","herere")
                 firebaseModel.addUserImage(user.id, ImageUri) {
-                    Log.i("ohad","herere2")
                     refreshAllUsers()
                     callback()
                 }
             }
-
         }  catch (e: Exception) {
             Log.d("userModel", "Error: $e")
         }

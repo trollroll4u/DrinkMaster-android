@@ -72,13 +72,11 @@ class UserFirebaseModel {
     }
 
     fun addUser(user: User, callback: () -> Unit) {
-        Log.i("userFirebaseModel", "1. addUser: " + user.id)
+        Log.i("userFirebaseModel", "trying to create user:" + user)
         try {
-
-
             db.collection(USERS_COLLECTION_PATH).document(user.id).set(user.json)
                 .addOnSuccessListener {
-                    Log.i("userFirebaseModel", "2. ddUser: " + user)
+                    Log.i("userFirebaseModel", "success to create user:" + user)
                     callback()
                 }
         } catch (e: Exception) {
