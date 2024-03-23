@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/baseline_add_photo_alternate_24" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutTextFirstName"
+        android:id="@+id/layoutTextReviewDescriptionCreateReview"
         android:layout_width="352dp"
         android:layout_height="105dp"
         android:layout_marginTop="88dp"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cocktailPicButton">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextFirstNameEditProfile"
+            android:id="@+id/editTextReviewDescriptionCreateReview"
             android:layout_width="332dp"
             android:layout_height="89dp"
             android:background="@drawable/rounded_edittext"
@@ -64,11 +64,11 @@
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTextFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/layoutTextReviewDescriptionCreateReview"
         app:layout_constraintVertical_bias="0.523">
 
         <ImageView
-            android:id="@+id/star1"
+            android:id="@+id/star1CreateReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -77,7 +77,7 @@
             tools:ignore="OnClick" />
 
         <ImageView
-            android:id="@+id/star2"
+            android:id="@+id/star2CreateReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -86,7 +86,7 @@
             tools:ignore="OnClick" />
 
         <ImageView
-            android:id="@+id/star3"
+            android:id="@+id/star3CreateReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -95,7 +95,7 @@
             tools:ignore="OnClick" />
 
         <ImageView
-            android:id="@+id/star4"
+            android:id="@+id/star4CreateReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -104,7 +104,7 @@
             tools:ignore="OnClick" />
 
         <ImageView
-            android:id="@+id/star5"
+            android:id="@+id/star5CreateReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -127,7 +127,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTextFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/layoutTextReviewDescriptionCreateReview"
         app:layout_constraintVertical_bias="0.415" />
 
 

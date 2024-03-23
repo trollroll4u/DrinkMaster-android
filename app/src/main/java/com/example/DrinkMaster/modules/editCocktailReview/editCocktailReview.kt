@@ -24,10 +24,9 @@ import com.example.DrinkMaster.databinding.FragmentEditCocktailReviewBinding
 import com.squareup.picasso.Picasso
 
 
-class edit_cocktail_review : Fragment() {
-    
+class editCocktailReview : Fragment() {
 
-//    private lateinit var viewModel: EditCocktailReviewViewModel
+
     private var _binding: FragmentEditCocktailReviewBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: EditCocktailReviewViewModel
@@ -70,19 +69,15 @@ class edit_cocktail_review : Fragment() {
     ): View? {
         _binding = FragmentEditCocktailReviewBinding.inflate(inflater,container,false)
         val view = inflater.inflate(R.layout.fragment_edit_cocktail_review, container, false)
-        
+
         viewModel = ViewModelProvider(this).get(EditCocktailReviewViewModel::class.java)
-        
+
         initFields()
         defineUpdateButtonClickListener()
         definePickImageClickListener()
 
         return view
     }
-    
-
-
-////***************************************************************
 
 
     @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
@@ -143,7 +138,7 @@ class edit_cocktail_review : Fragment() {
     }
 
     private fun onStarClicked(clickedStar: ImageView) {
-        val clickedStar = view as ImageView
+
         val clickedStarPosition = clickedStar.tag.toString().toInt()
 
         // Update the image of all stars according to the clicked star

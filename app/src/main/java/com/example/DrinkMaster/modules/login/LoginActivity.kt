@@ -86,8 +86,6 @@ class LoginActivity : AppCompatActivity() {
             Log.i("buttonClick", "signIn button in signin screen clicked")
             Log.i("signinSubmit", "email input is:" + emailValue)
             Log.i("signinSubmit", "password Input is:" + passwordValue)
-        }
-
 
             auth.signInWithEmailAndPassword(emailValue, passwordValue).addOnSuccessListener {
                 loggedInHandler()
@@ -103,6 +101,10 @@ class LoginActivity : AppCompatActivity() {
                 val authenticatedUser = it.user!!
 
             }
+        }
+
+
+
 
     }
 

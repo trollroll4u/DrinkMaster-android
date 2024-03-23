@@ -62,10 +62,10 @@ class Feed : Fragment() {
         }
 
 
-//        override fun onResume() {
-//            super.onResume()
-//            viewModel.reloadData()
-//        }
+        override fun onResume() {
+            super.onResume()
+            viewModel.reloadData()
+        }
 
 
         override fun onDestroy() {

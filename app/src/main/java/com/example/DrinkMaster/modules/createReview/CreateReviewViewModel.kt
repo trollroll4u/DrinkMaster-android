@@ -14,7 +14,7 @@ class CreateReviewViewModel : ViewModel() {
 
     var ImageURI: MutableLiveData<Uri> = MutableLiveData()
     var cocktaildescription: String = ""
-    var grade: Int? = null
+    var grade: Int? = 0
     var cocktaildescriptionError = MutableLiveData("")
     var gradeError = MutableLiveData("")
     var imageError = MutableLiveData("")
@@ -24,7 +24,7 @@ class CreateReviewViewModel : ViewModel() {
         cocktailName: String,
         createdReviewCallback: () -> Unit
     ) {
-        if (validateReviewUpdate()) {
+        if (validateReview()) {
             val reviewId = UUID.randomUUID().toString()
             val userId = auth.currentUser!!.uid
 
@@ -42,24 +42,24 @@ class CreateReviewViewModel : ViewModel() {
         }
     }
 
-    private fun validateReviewUpdate(
+    private fun validateReview(
     ): Boolean {
         var valid = true
 
         if (cocktaildescription.isEmpty()) {
-            cocktaildescriptionError.postValue("cocktaildescription cannot be empty")
+            cocktaildescriptionError.postValue("cocktail description cannot be empty")
             valid = false
         }
         Log.d("NewReviewViewModel", "grade: $grade")
         if (grade == null) {
             gradeError.postValue("grade cannot be empty")
             valid = false
-        } else if (grade!! < 1 || grade!! > 10) {
-            gradeError.postValue("Please rate the cocktail between 1-5")
+        } else if (grade!! < 1 || grade!! > 5) {
+            gradeError.postValue("Please rate the cocktail between 1-5 stars")
             valid = false
         }
-
         if (ImageURI.value == null) {
+
             imageError.postValue("Please select an image")
             valid = false
         }
