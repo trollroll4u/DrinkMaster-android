@@ -23,12 +23,14 @@ class SearchHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             return
         }
         itemView.setOnClickListener {
+//            val action = SearchFragmentDirections.actionSearchFragmentToCocktailFragment(cocktail)
             val action = SearchFragmentDirections.actionSearchFragmentToCocktailFragment(cocktail)
+
             Navigation.findNavController(itemView).navigate(action)
         }
 
         Picasso.get()
-            .load("https://image.tmdb.org/t/p/w500${cocktail.strDrinkThumb}")
+            .load(cocktail.strDrinkThumb)
             .into(cocktailImageView)
         cocktailTitleView?.text = cocktail.strDrink
     }

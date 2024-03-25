@@ -7,7 +7,7 @@ import retrofit2.http.Query
 import retrofit2.Call
 
 data class Cocktail(
-    val id: Int,
+    val idDrink: String,
     // Title
     val strDrink: String,
     // Instructions
