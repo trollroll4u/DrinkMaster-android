@@ -1,6 +1,10 @@
 package com.example.DrinkMaster.data.cocktail
+
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import retrofit2.http.GET
+import retrofit2.http.Query
+import retrofit2.Call
 
 data class Cocktail(
     val id: Int,
@@ -89,8 +93,23 @@ data class Cocktail(
         strMeasures = measures.joinToString(", ")
     }
 }
+data class DrinksResponse(
+    val drinks: List<Cocktail>
+)
 
-
+//interface CocktailApiService {
+//
+//    @GET("search.php")
+//    fun searchCocktail(
+//        @Query("s") strDrink: String
+//    ): Call<Cocktail>
+//}
+interface CocktailApiService {
+    @GET("search.php")
+    fun searchCocktail(
+        @Query("s") strDrink: String
+    ): Call<DrinksResponse>
+}
 
 //data class Cocktail(
 //    @SerializedName("idDrink")
