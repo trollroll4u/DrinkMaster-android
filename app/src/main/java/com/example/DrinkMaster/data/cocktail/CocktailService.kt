@@ -32,6 +32,23 @@ class CocktailService {
         })
     }
 
+    fun searchCocktailByID(DrinkID: String, callback: (MutableList<Cocktail>) -> Unit) {
+        val call: Call<DrinksResponse> = apiService.searchCocktailbYID(DrinkID)
+        call.enqueue(object : Callback<DrinksResponse> {
+            override fun onResponse(call: Call<DrinksResponse>, response: Response<DrinksResponse>) {
+                if (response.isSuccessful) {
+                    val cocktails: List<Cocktail>? = response.body()?.drinks
+                    callback(cocktails?.toMutableList() ?: mutableListOf())
+                } else {
+                    throw Exception("Failed to fetch cocktails")
+                }
+            }
+
+            override fun onFailure(call: Call<DrinksResponse>, t: Throwable) {
+                throw Exception("Failed to fetch cocktails")
+            }
+        })
+    }
     object RetrofitClient {
         private const val BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1/"
 

@@ -3,6 +3,7 @@ package com.example.DrinkMaster.modules.cocktail
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,9 +21,9 @@ import com.squareup.picasso.Picasso
 class cocktailFragment : Fragment() {
 
 
-    private val args by navArgs<cocktailFragmentArgs>()
-//    private lateinit var viewModel: CocktailViewModel
 
+    private lateinit var viewModel: CocktailViewModel
+    private val args by navArgs<cocktailFragmentArgs>()
 
     private lateinit var root: View
 
@@ -31,13 +32,19 @@ class cocktailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         root =  inflater.inflate(R.layout.fragment_cocktail, container, false)
-//        viewModel = ViewModelProvider(this).get(CocktailViewModel::class.java)
-//        viewModel.setCocktail(args.chooseCocktail)
+        viewModel = ViewModelProvider(this).get(CocktailViewModel::class.java)
+        viewModel.setCocktail(args.chooseCocktail)
 
-        cocktailsDetails(root)
+//        cocktailsDetails(root)
+
+        viewModel.cocktailDetailsData.observe(viewLifecycleOwner) {
+            Log.d("TAG", "cocktails size ${it?.size}")
+            cocktailsDetails(root)
+
+        }
 //        root.findViewById<Button>(R.id.AddReviewButton).setOnClickListener {
 //            val action = cocktailFragmentDirections.actionCocktailFragmentToCreateReview(viewModel.cocktailDetailsData!!)
-//
+////
 //            findNavController().navigate(action)
 //        }
 
@@ -50,16 +57,18 @@ class cocktailFragment : Fragment() {
         val cocktailInstruction: TextView = root.findViewById(R.id.coktailInstruction)
         val cocktailImage : ImageView = root.findViewById(R.id.cocktailImage)
 
-//        viewModel.cocktailDetailsData?.let { cocktail ->
-//            cocktailName.text = cocktail.strDrink
-//            cocktailInstruction.text = cocktail.strInstructions
-//            cocktailIngredient.text = cocktail.strIngredients
-//            Picasso.get()
-//                .load(cocktail.strDrinkThumb)
-//                .into(cocktailImage)
-//            cocktailInstruction.movementMethod = ScrollingMovementMethod()
-//            cocktailIngredient.movementMethod = ScrollingMovementMethod()
-//        }
+//        viewModel.cocktailDetailsData.value?.get(0)?.strDrink?.let { cocktailName.text = it }
+
+        viewModel.cocktailDetailsData?.let { cocktail ->
+            cocktailName.text = cocktail.value?.get(0)?.strDrink
+            cocktailInstruction.text = cocktail.value?.get(0)?.strInstructions
+            cocktailIngredient.text = cocktail.value?.get(0)?.strIngredients
+            Picasso.get()
+                .load(cocktail.value?.get(0)?.strDrinkThumb)
+                .into(cocktailImage)
+            cocktailInstruction.movementMethod = ScrollingMovementMethod()
+            cocktailIngredient.movementMethod = ScrollingMovementMethod()
+        }
     }
 
 }

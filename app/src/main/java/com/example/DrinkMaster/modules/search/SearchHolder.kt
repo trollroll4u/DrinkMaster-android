@@ -24,7 +24,7 @@ class SearchHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
         itemView.setOnClickListener {
 //            val action = SearchFragmentDirections.actionSearchFragmentToCocktailFragment(cocktail)
-            val action = SearchFragmentDirections.actionSearchFragmentToCocktailFragment(cocktail)
+            val action = SearchFragmentDirections.actionSearchFragmentToCocktailFragment(cocktail.idDrink)
 
             Navigation.findNavController(itemView).navigate(action)
         }

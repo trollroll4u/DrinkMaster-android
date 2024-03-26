@@ -11,7 +11,7 @@ data class Cocktail(
     // Title
     val strDrink: String,
     // Instructions
-    val strInstructions: String,
+    var strInstructions: String,
     // Image
     val strDrinkThumb: String,
 
@@ -49,7 +49,7 @@ data class Cocktail(
     val strMeasure14: String,
     val strMeasure15: String,
 ) : Serializable {
-    val strIngredients: String
+    var strIngredients: String
     val strMeasures: String
 
     init {
@@ -96,18 +96,15 @@ data class Cocktail(
 data class DrinksResponse(
     val drinks: List<Cocktail>
 )
-
-//interface CocktailApiService {
-//
-//    @GET("search.php")
-//    fun searchCocktail(
-//        @Query("s") strDrink: String
-//    ): Call<Cocktail>
-//}
 interface CocktailApiService {
     @GET("search.php")
     fun searchCocktail(
         @Query("s") strDrink: String
+    ): Call<DrinksResponse>
+
+    @GET("lookup.php")
+    fun searchCocktailbYID(
+        @Query("i") DrinkID: String
     ): Call<DrinksResponse>
 }
 

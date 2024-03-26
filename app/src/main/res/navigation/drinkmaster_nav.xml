@@ -40,7 +40,7 @@
             app:destination="@id/create_review" />
         <argument
             android:name="chooseCocktail"
-            app:argType="com.example.DrinkMaster.data.cocktail.Cocktail" />
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/create_review"
@@ -52,7 +52,7 @@
             app:destination="@id/feed" />
         <argument
             android:name="chooseCocktail"
-            app:argType="com.example.DrinkMaster.data.cocktail.Cocktail" />
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/editCocktailReview"
