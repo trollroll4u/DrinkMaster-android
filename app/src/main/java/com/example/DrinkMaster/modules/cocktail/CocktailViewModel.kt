@@ -33,7 +33,6 @@ class CocktailViewModel : ViewModel() {
             ).filterNotNull().joinToString("\n")
             cocktailDetailsData.postValue(it)
   }
- Log.i("CocktailViewModel","ohad" )
     }
 
 }

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.DrinkMaster.R
@@ -35,17 +36,20 @@ class cocktailFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(CocktailViewModel::class.java)
         viewModel.setCocktail(args.chooseCocktail)
 
-//        cocktailsDetails(root)
-
         viewModel.cocktailDetailsData.observe(viewLifecycleOwner) {
             Log.d("TAG", "cocktails size ${it?.size}")
             cocktailsDetails(root)
 
         }
         root.findViewById<Button>(R.id.AddReviewButton).setOnClickListener {
-            val action = cocktailFragmentDirections.actionCocktailFragmentToCreateReview(viewModel.cocktailDetailsData.value?.get(0)?.idDrink!!)
+            viewModel.cocktailDetailsData?.let { cocktail ->
+
+                val action = cocktailFragmentDirections.actionCocktailFragmentToCreateReview()
+                Navigation.findNavController( root.findViewById<Button>(R.id.AddReviewButton)).navigate(action)
 //
-            findNavController().navigate(action)
+//                findNavController().navigate(action)
+            }
+
         }
 
         return root

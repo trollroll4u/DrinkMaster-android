@@ -61,11 +61,8 @@ class EditProfile : Fragment() {
     ): View {
         Log.d("EditProfile", "onCreateView: ")
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
-        Log.d("EditProfile", "onCreateView2: ")
         val view = binding.root
-        Log.d("EditProfile", "onCreateView3: ")
         viewModel = ViewModelProvider(this).get(EditProfileViewModel::class.java)
-        Log.d("EditProfile", "onCreateView4: ")
         setUI()
         return view
     }

@@ -46,13 +46,10 @@
         android:id="@+id/create_review"
         android:name="com.example.DrinkMaster.modules.createReview.create_review"
         android:label="fragment_create_review"
-        tools:layout="@layout/fragment_create_review" >
+        tools:layout="@layout/fragment_create_review">
         <action
             android:id="@+id/action_create_review_to_main_feed"
             app:destination="@id/feed" />
-        <argument
-            android:name="chooseCocktail"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/editCocktailReview"
