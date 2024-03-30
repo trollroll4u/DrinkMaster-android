@@ -46,8 +46,6 @@ class cocktailFragment : Fragment() {
 
                 val action = cocktailFragmentDirections.actionCocktailFragmentToCreateReview()
                 Navigation.findNavController( root.findViewById<Button>(R.id.AddReviewButton)).navigate(action)
-//
-//                findNavController().navigate(action)
             }
 
         }

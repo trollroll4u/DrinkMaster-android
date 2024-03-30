@@ -38,7 +38,7 @@ class ReviewModel private constructor() {
 //        reviews?.value?.add(rev3)
 //        reviews?.value?.add(rev4)
 
-//        refreshAllReviews()
+        refreshAllReviews()
         return reviews ?: database.reviewDao().getAll()
     }
 

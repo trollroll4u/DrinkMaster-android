@@ -1,6 +1,7 @@
 package com.example.DrinkMaster.modules.feed
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,30 +23,29 @@ class Feed : Fragment() {
         private val binding get() = _binding!!
         private lateinit var viewModel: CocktailsFeedViewModel
 
+        @SuppressLint("NotifyDataSetChanged")
         override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
         ): View {
-            Log.i("ohad","ohad1")
             _binding = FragmentCocktailsFeedBinding.inflate(inflater, container, false)
             val view = binding.root
 
             viewModel = ViewModelProvider(this)[CocktailsFeedViewModel::class.java]
-            Log.i("ohad","ohad11")
 
             reviewsRecyclerView = binding.Feed
             reviewsRecyclerView?.setHasFixedSize(true)
             reviewsRecyclerView?.layoutManager = LinearLayoutManager(context)
-            adapter = FeedRecycleAdapter(viewModel.reviews?.value, viewModel.users?.value)
+            adapter = FeedRecycleAdapter(viewModel.reviews.value, viewModel.users.value)
 
             reviewsRecyclerView?.adapter = adapter
 
-            viewModel.reviews?.observe(viewLifecycleOwner) {
+            viewModel.reviews.observe(viewLifecycleOwner) {
                 adapter?.reviews = it
                 adapter?.notifyDataSetChanged()
             }
 
-            viewModel.users?.observe(viewLifecycleOwner) {
+            viewModel.users.observe(viewLifecycleOwner) {
                 adapter?.users = it
                 adapter?.notifyDataSetChanged()
             }
