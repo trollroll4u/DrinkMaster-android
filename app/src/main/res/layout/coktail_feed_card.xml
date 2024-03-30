@@ -26,7 +26,7 @@
 
             <!-- Media -->
             <ImageView
-                android:id="@+id/CardImage"
+                android:id="@+id/profileReviewCardImage"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
                 android:contentDescription="Card Image"

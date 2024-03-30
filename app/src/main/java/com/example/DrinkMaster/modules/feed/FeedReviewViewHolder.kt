@@ -1,6 +1,5 @@
 package com.example.DrinkMaster.modules.feed
 
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,7 +11,7 @@ import com.squareup.picasso.Picasso
 
 class FeedReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    val reviewImageView: ImageView? = itemView.findViewById(R.id.CardImage)
+    val reviewImageView: ImageView? = itemView.findViewById(R.id.profileReviewCardImage)
     val profileImageView: ImageView? = itemView.findViewById(R.id.ProfileImageView)
     val profileName: TextView? = itemView.findViewById(R.id.ProfileName)
     val coktailName: TextView? = itemView.findViewById(R.id.CoktailName)

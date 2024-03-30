@@ -26,17 +26,16 @@ import com.squareup.picasso.Picasso
 
 class editCocktailReview : Fragment() {
 
-
     private var _binding: FragmentEditCocktailReviewBinding? = null
+
     private val binding get() = _binding!!
     private lateinit var viewModel: EditCocktailReviewViewModel
-    private val args by navArgs<edit_cocktail_reviewArgs>()
-    val star1 = binding.star1
-    val star2 = binding.star2
-    val star3 = binding.star3
-    val star4 = binding.star4
-    val star5 = binding.star5
-
+    private val args by navArgs<editCocktailReviewArgs>()
+    private lateinit var star1 : ImageView
+    private lateinit var star2 : ImageView
+    private lateinit var star3 : ImageView
+    private lateinit var star4 : ImageView
+    private lateinit var star5 : ImageView
     private val imageSelectionLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             try {
@@ -67,14 +66,19 @@ class editCocktailReview : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentEditCocktailReviewBinding.inflate(inflater,container,false)
+      _binding = FragmentEditCocktailReviewBinding.inflate(inflater,container,false)
         val view = inflater.inflate(R.layout.fragment_edit_cocktail_review, container, false)
+        star1 = binding.star1
+        star2 = binding.star2
+        star3 = binding.star3
+        star4 = binding.star4
+        star5 = binding.star5
 
-        viewModel = ViewModelProvider(this).get(EditCocktailReviewViewModel::class.java)
+       viewModel = ViewModelProvider(this).get(EditCocktailReviewViewModel::class.java)
 
-        initFields()
-        defineUpdateButtonClickListener()
-        definePickImageClickListener()
+       initFields()
+//       defineUpdateButtonClickListener()
+//       definePickImageClickListener()
 
         return view
     }
@@ -87,30 +91,29 @@ class editCocktailReview : Fragment() {
         }
     }
 
-    private fun defineUpdateButtonClickListener() {
-        binding.saveButton.setOnClickListener {
-            binding.saveButton.isClickable = false
+   private fun defineUpdateButtonClickListener() {
+       binding.saveButton.setOnClickListener {
+           binding.saveButton.isClickable = false
             viewModel.updateReview {
-                findNavController().navigate(R.id.action_edit_profile_to_profile)
-                binding.saveButton.isClickable = true
-            }
-        }
-    }
+               findNavController().navigate(R.id.action_edit_profile_to_profile)
+               binding.saveButton.isClickable = true
+           }
+       }
+   }
 
     private fun initFields() {
         val currentReview = args.selectedReview
         viewModel.loadReview(currentReview)
 
-        var grade = currentReview.grade
         binding.editTextCocktailDescription.setText(currentReview.coktailDescription)
 
-        when(grade) {
+        when(currentReview.grade) {
             in 1..5 -> {
-                star1.setImageResource(if (grade >= 1) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
-                star2.setImageResource(if (grade >= 2) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
-                star3.setImageResource(if (grade >= 3) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
-                star4.setImageResource(if (grade >= 4) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
-                star5.setImageResource(if (grade >= 5) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
+                star1.setImageResource(if (viewModel.grade!! >= 1) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
+                star2.setImageResource(if (viewModel.grade!! >= 2) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
+                star3.setImageResource(if (viewModel.grade!! >= 3) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
+                star4.setImageResource(if (viewModel.grade!! >= 4) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
+                star5.setImageResource(if (viewModel.grade!! >= 5) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
             }
         }
 
@@ -141,7 +144,6 @@ class editCocktailReview : Fragment() {
 
         val clickedStarPosition = clickedStar.tag.toString().toInt()
 
-        // Update the image of all stars according to the clicked star
         // Update the image of all stars according to the clicked star
         for (star in listOf(star1, star2, star3, star4, star5)) {
             val starPosition = star.tag.toString().toInt()

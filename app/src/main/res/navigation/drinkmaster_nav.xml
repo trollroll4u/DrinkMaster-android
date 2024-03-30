@@ -15,16 +15,13 @@
             app:destination="@id/cocktailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/my_cocktails_reviews"
-        android:name="com.example.DrinkMaster.modules.feed.Feed"
-        android:label="fragment_cocktails_feed"
+        android:id="@+id/profileReviews"
+        android:name="com.example.DrinkMaster.modules.myReviews.ProfileReviews"
+        android:label="fragment_profile_reviews"
         tools:layout="@layout/fragment_cocktails_feed" >
         <action
-            android:id="@+id/action_my_cocktails_reviews_to_editCocktailReview"
+            android:id="@+id/action_profileReviews_to_editCocktailReview"
             app:destination="@id/editCocktailReview" />
-        <argument
-            android:name="selectedReview"
-            app:argType="com.example.DrinkMaster.data.review.Review" />
     </fragment>
     <fragment
         android:id="@+id/feed"
@@ -53,15 +50,15 @@
     </fragment>
     <fragment
         android:id="@+id/editCocktailReview"
-        android:name="com.example.DrinkMaster.modules.editCocktailReview.edit_cocktail_review"
+        android:name="com.example.DrinkMaster.modules.editCocktailReview.editCocktailReview"
         android:label="fragment_edit_cocktail_review"
         tools:layout="@layout/fragment_edit_cocktail_review" >
-        <argument
-            android:name="selectedReview"
-            app:argType="com.example.DrinkMaster.data.review.Review" />
         <action
             android:id="@+id/action_edit_cocktail_review_to_profile2"
             app:destination="@id/profile" />
+        <argument
+            android:name="selectedReview"
+            app:argType="com.example.DrinkMaster.data.review.Review" />
     </fragment>
     <fragment
         android:id="@+id/profile"
@@ -73,7 +70,7 @@
             app:destination="@id/edit_profile" />
         <action
             android:id="@+id/action_profile_to_my_cocktails_reviews"
-            app:destination="@id/my_cocktails_reviews" />
+            app:destination="@id/profileReviews" />
     </fragment>
     <fragment
         android:id="@+id/edit_profile"
@@ -84,9 +81,4 @@
             android:id="@+id/action_edit_profile_to_profile"
             app:destination="@id/profile" />
     </fragment>
-    <fragment
-        android:id="@+id/my_review_card"
-        android:name="com.example.DrinkMaster.modules.myReviews.my_review_card"
-        android:label="fragment_my_review_card2"
-        tools:layout="@layout/fragment_my_review_card" />
 </navigation>
