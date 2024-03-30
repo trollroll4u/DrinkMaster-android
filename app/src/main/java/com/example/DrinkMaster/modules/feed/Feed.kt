@@ -19,6 +19,7 @@ class Feed : Fragment() {
         private var reviewsRecyclerView: RecyclerView? = null
         private var adapter: FeedRecycleAdapter? = null
         private var _binding: FragmentCocktailsFeedBinding? = null
+
         private val binding get() = _binding!!
         private lateinit var viewModel: CocktailsFeedViewModel
 

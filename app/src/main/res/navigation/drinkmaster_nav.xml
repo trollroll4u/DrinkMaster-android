@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drinkmaster_nav"
-    app:startDestination="@id/feed">
+    app:startDestination="@id/searchFragment">
 
     <fragment
         android:id="@+id/searchFragment"
@@ -26,11 +26,11 @@
             android:name="selectedReview"
             app:argType="com.example.DrinkMaster.data.review.Review" />
     </fragment>
-    <fragment
-        android:id="@+id/feed"
-        android:name="com.example.DrinkMaster.modules.feed.Feed"
-        android:label="fragment_cocktails_feed"
-        tools:layout="@layout/fragment_cocktails_feed" />
+<!--    <fragment-->
+<!--        android:id="@+id/feed"-->
+<!--        android:name="com.example.DrinkMaster.modules.feed.Feed"-->
+<!--        android:label="fragment_cocktails_feed"-->
+<!--        tools:layout="@layout/fragment_cocktails_feed" />-->
     <fragment
         android:id="@+id/cocktailFragment"
         android:name="com.example.DrinkMaster.modules.cocktail.cocktailFragment"

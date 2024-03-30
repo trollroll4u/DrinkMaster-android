@@ -18,20 +18,20 @@ class CocktailsFeedViewModel() : ViewModel() {
 //    var reviews: LiveData<MutableList<Review>>? = ReviewModel.instance.getAllReviews()
 //    val users: LiveData<MutableList<User>>? = null
 
-//    var reviews: MutableLiveData<MutableList<Review>> = MutableLiveData()
+    var reviews: MutableLiveData<MutableList<Review>> = MutableLiveData()
 //    var users: MutableLiveData<MutableList<User>> = MutableLiveData()
-//    var number: Int = ReviewModel.instance.getNumber()
 
-//    init {
-//        reviews.value = loadReviewsFromAssets()
+
+    init {
+        reviews.value = loadReviewsFromAssets()
 //        users.value = loadUsersFromAssets()
-//    }
+    }
 
-    val reviews: LiveData<MutableList<Review>> = ReviewModel.instance.getAllReviews()
+//    val reviews: LiveData<MutableList<Review>> = ReviewModel.instance.getAllReviews()
     val users: LiveData<MutableList<User>> = UserModel.instance.getAllUsers()
     val reviewsListLoadingState: MutableLiveData<ReviewModel.LoadingState> =
         ReviewModel.instance.reviewsListLoadingState
-//    init {
+////    init {
 //        loadReviewsFromAssets()
 //    }
 
@@ -43,11 +43,12 @@ class CocktailsFeedViewModel() : ViewModel() {
 
     fun loadReviewsFromAssets(): MutableList<Review> {
         val reviews = mutableListOf<Review>()
-//
-//        reviews.add(rev1)
-//        reviews.add(rev2)
-//        reviews.add(rev3)
-//        reviews.add(rev4)
+
+
+        reviews.add(rev1)
+        reviews.add(rev2)
+        reviews.add(rev3)
+        reviews.add(rev4)
 //        val json: String
 //
 //        try {

@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
-    <!--    <Space-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="36dp" />-->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/pullToRefresh"
+        android:layout_width="415dp"
+        android:layout_height="361dp"
+        app:layout_constraintBottom_toTopOf="@+id/AddReviewButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coktailInstruction"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <ImageView
         android:id="@+id/cocktailImage"
@@ -103,6 +120,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InstructionsTitle" />
 
+    <!-- Rest of your layout -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/AddReviewButton"
         android:layout_width="330dp"
@@ -115,21 +134,75 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/coktailInstruction"
-        app:layout_constraintVertical_bias="0.108" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+</LinearLayout>
+    </ScrollView>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        android:id="@+id/pullToRefresh"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:indeterminate="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.503">-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/Feed"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 
     <!--    <Space-->
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="36dp" />-->
 
-    <!--    <Button-->
-    <!--        android:id="@+id/addReview"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="@drawable/mybutton"-->
-    <!--        android:text="@string/add_review"-->
-    <!--        android:textColor="#FFFF7B00"-->
-    <!--        android:textSize="20sp" />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/AddReviewButton"-->
+<!--        android:layout_width="330dp"-->
+<!--        android:layout_height="67dp"-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:text="Create Review"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.493"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/coktailInstruction"-->
+<!--        app:layout_constraintVertical_bias="0.108" />-->
+
+<!--    &lt;!&ndash;    <Space&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="36dp" />&ndash;&gt;-->
+
+<!--    &lt;!&ndash;    <Button&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:id="@+id/addReview"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:background="@drawable/mybutton"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:text="@string/add_review"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:textColor="#FFFF7B00"&ndash;&gt;-->
+<!--    &lt;!&ndash;        android:textSize="20sp" />&ndash;&gt;-->
+
+
+
+<!--</LinearLayout>-->
