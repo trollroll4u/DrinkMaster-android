@@ -71,7 +71,6 @@ class EditProfile : Fragment() {
     private fun setUI() {
         viewModel.loadUser()
         println(viewModel.user.value)
-//        root.findViewById<TextView>(R.id.editTextFirstName).text = viewModel.firstName
         binding.editTextFirstName.addTextChangedListener {
             viewModel.firstName = it.toString().trim()
         }

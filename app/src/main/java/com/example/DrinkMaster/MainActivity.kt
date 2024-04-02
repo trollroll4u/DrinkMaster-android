@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i("creation","creating ypi screen")
-        Log.i("ohad","hereee2")
         setContentView(R.layout.activity_main)
         setUI()
 

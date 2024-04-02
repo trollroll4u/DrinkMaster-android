@@ -21,12 +21,14 @@ import androidx.annotation.RequiresExtension
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.DrinkMaster.R
 import com.example.DrinkMaster.databinding.FragmentCreateReviewBinding
+import com.example.DrinkMaster.modules.cocktail.cocktailFragmentArgs
 
 class create_review : Fragment() {
     private var _binding: FragmentCreateReviewBinding? = null
-    private lateinit var root: View
+    private val args by navArgs<create_reviewArgs>()
     private val binding get() = _binding!!
     private lateinit var viewModel: CreateReviewViewModel
 
@@ -54,7 +56,6 @@ class create_review : Fragment() {
         star5 = binding.star5CreateReview
 
         setUI()
-
         defineSaveButtonClickListener()
         definePickImageClickListener()
         return view
@@ -65,7 +66,6 @@ class create_review : Fragment() {
         binding.editTextReviewDescriptionCreateReview.addTextChangedListener {
             viewModel.cocktaildescription = it.toString().trim()
         }
-
         star1.tag = 1
         star2.tag = 2
         star3.tag = 3
@@ -123,7 +123,7 @@ class create_review : Fragment() {
     private fun defineSaveButtonClickListener() {
         binding.saveButton.setOnClickListener {
             // Check if chooseCocktail argument is available
-            val chooseCocktail = findNavController().previousBackStackEntry?.arguments?.getString("chooseCocktail")
+            val chooseCocktail = args.cocktailName
             if (chooseCocktail != null) {
                 binding.saveButton.isClickable = false
                 viewModel.createReview(chooseCocktail) {

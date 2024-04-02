@@ -43,11 +43,11 @@ class cocktailFragment : Fragment() {
         }
         root.findViewById<Button>(R.id.AddReviewButton).setOnClickListener {
             viewModel.cocktailDetailsData?.let { cocktail ->
-
-                val action = cocktailFragmentDirections.actionCocktailFragmentToCreateReview()
+                val action = cocktailFragmentDirections.actionCocktailFragmentToCreateReview(
+                    cocktail.value?.get(0)?.strDrink ?: "Cocktail"
+                )
                 Navigation.findNavController( root.findViewById<Button>(R.id.AddReviewButton)).navigate(action)
             }
-
         }
 
         return root
@@ -59,7 +59,7 @@ class cocktailFragment : Fragment() {
         val cocktailInstruction: TextView = root.findViewById(R.id.coktailInstruction)
         val cocktailImage : ImageView = root.findViewById(R.id.cocktailImage)
 
-        viewModel.cocktailDetailsData?.let { cocktail ->
+        viewModel.cocktailDetailsData.let { cocktail ->
             cocktailName.text = cocktail.value?.get(0)?.strDrink
             cocktailInstruction.text = cocktail.value?.get(0)?.strInstructions
             cocktailIngredient.text = cocktail.value?.get(0)?.strIngredients

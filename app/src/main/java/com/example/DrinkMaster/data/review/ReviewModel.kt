@@ -27,18 +27,8 @@ class ReviewModel private constructor() {
     companion object {
         val instance: ReviewModel = ReviewModel()
     }
-    fun getNumber(): Int {
-        return 4
-    }
 
     fun getAllReviews(): LiveData<MutableList<Review>> {
-//
-//        reviews?.value?.add(rev1)
-//        reviews?.value?.add(rev2)
-//        reviews?.value?.add(rev3)
-//        reviews?.value?.add(rev4)
-
-        refreshAllReviews()
         return reviews ?: database.reviewDao().getAll()
     }
 
@@ -109,7 +99,7 @@ class ReviewModel private constructor() {
     }
 
     fun getReviewImage(imageId: String, callback: (Uri) -> Unit) {
-//        firebaseModel.getImage(imageId, callback);
+        firebaseModel.getImage(imageId, callback);
     }
 
 }

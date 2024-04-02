@@ -67,18 +67,18 @@ class editCocktailReview : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
       _binding = FragmentEditCocktailReviewBinding.inflate(inflater,container,false)
-        val view = inflater.inflate(R.layout.fragment_edit_cocktail_review, container, false)
-        star1 = binding.star1
-        star2 = binding.star2
-        star3 = binding.star3
-        star4 = binding.star4
-        star5 = binding.star5
+        val view = binding.root
+        star1 = binding.star1EditCocktailReview
+        star2 = binding.star2EditCocktailReview
+        star3 = binding.star3EditCocktailReview
+        star4 = binding.star4EditCocktailReview
+        star5 = binding.star5EditCocktailReview
 
        viewModel = ViewModelProvider(this).get(EditCocktailReviewViewModel::class.java)
 
        initFields()
-//       defineUpdateButtonClickListener()
-//       definePickImageClickListener()
+       defineUpdateButtonClickListener()
+       definePickImageClickListener()
 
         return view
     }
@@ -95,7 +95,7 @@ class editCocktailReview : Fragment() {
        binding.saveButton.setOnClickListener {
            binding.saveButton.isClickable = false
             viewModel.updateReview {
-               findNavController().navigate(R.id.action_edit_profile_to_profile)
+               findNavController().navigate(R.id.action_edit_cocktail_review_to_profile)
                binding.saveButton.isClickable = true
            }
        }
@@ -104,12 +104,20 @@ class editCocktailReview : Fragment() {
     private fun initFields() {
         val currentReview = args.selectedReview
         viewModel.loadReview(currentReview)
-
         binding.editTextCocktailDescription.setText(currentReview.coktailDescription)
+
+        binding.editTextCocktailDescription.addTextChangedListener {
+            viewModel.cocktaildescription = it.toString().trim()
+        }
+        star1.tag = 1
+        star2.tag = 2
+        star3.tag = 3
+        star4.tag = 4
+        star5.tag = 5
 
         when(currentReview.grade) {
             in 1..5 -> {
-                star1.setImageResource(if (viewModel.grade!! >= 1) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
+                star1.setImageResource(if (viewModel.grade!! >= 1)R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
                 star2.setImageResource(if (viewModel.grade!! >= 2) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
                 star3.setImageResource(if (viewModel.grade!! >= 3) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
                 star4.setImageResource(if (viewModel.grade!! >= 4) R.drawable.baseline_filled_star_24 else R.drawable.baseline_empty_star_border_24)
@@ -117,16 +125,11 @@ class editCocktailReview : Fragment() {
             }
         }
 
-
-        binding.editTextCocktailDescription.addTextChangedListener {
-            viewModel.cocktaildescription = it.toString().trim()
-        }
-
-        binding.star1.setOnClickListener{onStarClicked(star1)}
-        binding.star2.setOnClickListener{onStarClicked(star2)}
-        binding.star3.setOnClickListener{onStarClicked(star3)}
-        binding.star4.setOnClickListener{onStarClicked(star4)}
-        binding.star5.setOnClickListener{onStarClicked(star5)}
+        binding.star1EditCocktailReview.setOnClickListener{onStarClicked(star1)}
+        binding.star2EditCocktailReview.setOnClickListener{onStarClicked(star2)}
+        binding.star3EditCocktailReview.setOnClickListener{onStarClicked(star3)}
+        binding.star4EditCocktailReview.setOnClickListener{onStarClicked(star4)}
+        binding.star5EditCocktailReview.setOnClickListener{onStarClicked(star5)}
 
 
         viewModel.selectedImageURI.observe(viewLifecycleOwner) { uri ->
@@ -139,9 +142,9 @@ class editCocktailReview : Fragment() {
         }
 
     }
-
-    private fun onStarClicked(clickedStar: ImageView) {
-
+    public fun onStarClicked(view: ImageView) {
+        Log.d("StarClick", "Star clicked") // Add this line
+        val clickedStar = view
         val clickedStarPosition = clickedStar.tag.toString().toInt()
 
         // Update the image of all stars according to the clicked star

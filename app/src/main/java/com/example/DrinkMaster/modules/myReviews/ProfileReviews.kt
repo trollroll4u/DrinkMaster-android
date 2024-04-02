@@ -55,6 +55,7 @@ class ProfileReviews : Fragment() {
     }
 
     override fun onDestroy() {
+        super.onDestroy()
         super.onDestroyView()
         _binding = null
     }

@@ -15,12 +15,6 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
-
-
-// Now you can use the inputValue as needed
-
-
-
 class LoginActivity : AppCompatActivity() {
 
     private var auth = Firebase.auth
@@ -97,10 +91,10 @@ class LoginActivity : AppCompatActivity() {
                 ).show()
             }
 
-            auth.createUserWithEmailAndPassword(emailValue,passwordValue).addOnSuccessListener {
-                val authenticatedUser = it.user!!
-
-            }
+//            auth.createUserWithEmailAndPassword(emailValue,passwordValue).addOnSuccessListener {
+//                val authenticatedUser = it.user!!
+//
+//            }
         }
 
 

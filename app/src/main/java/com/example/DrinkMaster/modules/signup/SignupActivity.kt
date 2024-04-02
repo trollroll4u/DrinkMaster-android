@@ -82,9 +82,6 @@ class SignupActivity : AppCompatActivity() {
         defineImageSelectionCallBack()
         signUpButton?.setOnClickListener {
             checkNewUserDetails()
-            // check if everything is valid
-            // check if it already exist
-            // create connection to the db for sign up
         }
         signInButton?.setOnClickListener{
             val intent= Intent(this@SignupActivity, LoginActivity::class.java)

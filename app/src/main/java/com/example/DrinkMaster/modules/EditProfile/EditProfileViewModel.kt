@@ -12,7 +12,6 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.auth
 
 class EditProfileViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
     val userId = Firebase.auth.currentUser!!.uid
     var imageChanged = false
     var selectedImageURI: MutableLiveData<Uri> = MutableLiveData()

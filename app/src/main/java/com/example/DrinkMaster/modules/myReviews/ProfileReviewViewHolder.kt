@@ -53,7 +53,7 @@ class ProfileReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
         profileName?.text = reviewerName
         CoktailName?.text = review?.coktailName
         CoktailDescription?.text = review?.coktailDescription
-        ReviewGrade?.text = "Rating: ${review?.grade} ★"
+        ReviewGrade?.text = "Grade: ${review?.grade} ★"
         deleteButton.setOnClickListener {
             MaterialAlertDialogBuilder(itemView.context)
                 .setTitle("Delete Review")

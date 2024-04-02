@@ -13,7 +13,6 @@ class SearchViewModel : ViewModel() {
             cocktails.postValue(it)
         }
     }
-
     fun clearCocktails() {
         cocktails.postValue(mutableListOf())
     }

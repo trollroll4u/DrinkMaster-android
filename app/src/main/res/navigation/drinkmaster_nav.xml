@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_create_review_to_main_feed"
             app:destination="@id/feed" />
+        <argument
+            android:name="cocktail_name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/editCocktailReview"
@@ -54,7 +57,7 @@
         android:label="fragment_edit_cocktail_review"
         tools:layout="@layout/fragment_edit_cocktail_review" >
         <action
-            android:id="@+id/action_edit_cocktail_review_to_profile2"
+            android:id="@+id/action_edit_cocktail_review_to_profile"
             app:destination="@id/profile" />
         <argument
             android:name="selectedReview"

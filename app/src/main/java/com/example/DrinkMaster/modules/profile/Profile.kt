@@ -24,16 +24,13 @@ class Profile : Fragment() {
     private lateinit var root: View
     private var auth = Firebase.auth
     private val storage = Firebase.storage
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         root = inflater.inflate(R.layout.fragment_profile, container, false)
         root = setUI(root)
-
         return root
-
 
     }
 
