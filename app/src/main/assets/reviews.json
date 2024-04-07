@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "cocktailName": "Mojito",
+    "cocktailDescription": "A refreshing cocktail with mint and lime.",
+    "grade": 3,
+    "userId": "user1",
+    "isDeleted": false,
+    "reviewImage": "mojito.jpg",
+    "timestamp": 1648068300
+  },
+  {
+    "id": "2",
+    "cocktailName": "Margarita",
+    "cocktailDescription": "A classic tequila-based cocktail.",
+    "grade": 4,
+    "userId": "user2",
+    "isDeleted": false,
+    "reviewImage": "margarita.jpg",
+    "timestamp": 1648068400
+  }
+]

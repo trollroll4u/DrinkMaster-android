@@ -8,16 +8,23 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.provider.MediaStore
 import android.net.Uri
+import android.os.Build
 import android.util.Patterns
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import androidx.annotation.RequiresExtension
+import com.example.DrinkMaster.MainActivity
 import com.example.DrinkMaster.R
 import com.example.DrinkMaster.modules.login.LoginActivity
+import com.example.DrinkMaster.data.user.User
+import com.example.DrinkMaster.data.user.UserModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.Firebase
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.auth
 
 
@@ -27,6 +34,7 @@ class SignupActivity : AppCompatActivity() {
 
     // Define callback after select image
     private lateinit var imageSelectionCallBack: ActivityResultLauncher<Intent>
+    private var imageURI: Uri? = null
 
     // Define all the variables
     private lateinit var firstNameInputLayout: TextInputLayout
@@ -52,12 +60,14 @@ class SignupActivity : AppCompatActivity() {
 
      private lateinit var pickProfilepicButton: ImageButton
 
+    @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i("creation","creating signup screen")
-
-
         setContentView(R.layout.signup_screen)
+
+        backToLogin()
         setUI()
 
     }
@@ -72,9 +82,6 @@ class SignupActivity : AppCompatActivity() {
         defineImageSelectionCallBack()
         signUpButton?.setOnClickListener {
             checkNewUserDetails()
-            // check if everything is valid
-            // check if it already exist
-            // create connection to the db for sign up
         }
         signInButton?.setOnClickListener{
             val intent= Intent(this@SignupActivity, LoginActivity::class.java)
@@ -85,6 +92,14 @@ class SignupActivity : AppCompatActivity() {
             Log.i("buttonClick", "pick profile pick button in signup screen clicked")
             openGallery()
 
+        }
+    }
+
+    private fun backToLogin() {
+        findViewById<TextView>(R.id.AlreadyHaveAccountButtonSignUpScreen).setOnClickListener {
+            val intent = Intent(this@SignupActivity, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -105,8 +120,6 @@ class SignupActivity : AppCompatActivity() {
         passwordInputLayout = findViewById(R.id.layoutTextPasswordSignUpScreen)
         val passwordValue = passwordInputEditText.text.toString().trim()
 
-
-
         passwordConfirmationInputEditText = findViewById(R.id.editTextConfirmPasswordSignUpScreen)
         passwordConfirmationInputLayout = findViewById(R.id.layoutTextConfirmPasswordSignUpScreen)
         val passwordConfirmationValue = passwordConfirmationInputEditText.text.toString().trim()
@@ -123,12 +136,40 @@ class SignupActivity : AppCompatActivity() {
             Log.i("signupSubmit", "email input is:" + emailValue)
             Log.i("signupSubmit", "password Input is:" + passwordValue)
             Log.i("signupSubmit", "password Confirmation Input is:" + passwordConfirmationValue)
-//            auth.createUserWithEmailAndPassword(emailValue,passwordValue).addOnSuccessListener {
-//                val authenticatedUser = it.user!!
+            auth.createUserWithEmailAndPassword(emailValue,passwordValue).addOnSuccessListener {
+                val authenticatedUser = it.user!!
 
-//            }
+                val profileChange = UserProfileChangeRequest.Builder()
+                    .setPhotoUri(imageURI)
+                    .setDisplayName("$firstNameValue $lastNameValue")
+                    .build()
+
+                authenticatedUser.updateProfile(profileChange)
+
+                UserModel.instance.addUser(
+                    User(authenticatedUser.uid, firstNameValue, lastNameValue),
+                    imageURI!!
+                ){
+                    Toast.makeText(
+                        this@SignupActivity,
+                        "Register Successful",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                    val intent = Intent(this@SignupActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }.addOnFailureListener {
+                Toast.makeText(
+                    this@SignupActivity,
+                    "Register Failed, " + it.message,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            }
         }
-    }
 
     private fun userValidation(
         firstName: String,
@@ -179,7 +220,7 @@ class SignupActivity : AppCompatActivity() {
         } else {
             passwordConfirmationInputLayout.error = null
         }
-        if (pickProfilepicButton == null) {
+        if (imageURI == null) {
             Toast.makeText(
                 this@SignupActivity,
                 "You must select Profile Image",
@@ -216,7 +257,8 @@ class SignupActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     } else {
-                        pickProfilepicButton?.setImageURI(imageUri)
+                        pickProfilepicButton.setImageURI(imageUri)
+                        imageURI = imageUri
                     }
 
                 } else {

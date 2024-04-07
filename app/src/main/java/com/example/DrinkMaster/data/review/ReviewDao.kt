@@ -8,7 +8,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-
 interface ReviewDao {
     @Query("SELECT * FROM review order by timestamp desc")
     fun getAll(): LiveData<MutableList<Review>>
